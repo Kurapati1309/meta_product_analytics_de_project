@@ -11184,3 +11184,629 @@ KeyboardInterrupt
 [0m05:41:49.463099 [debug] [MainThread]: Command `dbt docs serve` failed at 05:41:49.463099 after 493.66 seconds
 [0m05:41:49.463099 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'end', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000001A941A62F30>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000001A94385B830>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000001A9439D7A10>]}
 [0m05:41:49.464836 [debug] [MainThread]: Flushing usage events
+[0m06:00:45.957593 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'start', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000001EA084ABB30>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000001EA083EEBD0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000001EA083EF800>]}
+
+
+============================== 06:00:45.957593 | f3d23dfd-cc31-46b1-8b1b-bf2d5dd900fc ==============================
+[0m06:00:45.957593 [info ] [MainThread]: Running with dbt=1.8.6
+[0m06:00:45.957593 [debug] [MainThread]: running dbt with arguments {'printer_width': '80', 'indirect_selection': 'eager', 'log_cache_events': 'False', 'write_json': 'True', 'partial_parse': 'True', 'cache_selected_only': 'False', 'profiles_dir': 'C:\\Users\\khema\\Downloads\\meta_product_analytics_de_project\\meta_product_analytics_de_project\\dbt_project', 'fail_fast': 'False', 'debug': 'False', 'log_path': 'C:\\Users\\khema\\Downloads\\meta_product_analytics_de_project\\meta_product_analytics_de_project\\dbt_project\\logs', 'warn_error': 'None', 'version_check': 'True', 'use_colors': 'True', 'use_experimental_parser': 'False', 'empty': 'None', 'quiet': 'False', 'no_print': 'None', 'log_format': 'default', 'static_parser': 'True', 'warn_error_options': 'WarnErrorOptions(include=[], exclude=[])', 'invocation_command': 'dbt docs generate', 'target_path': 'None', 'introspect': 'True', 'send_anonymous_usage_stats': 'True'}
+[0m06:00:46.274669 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'project_id', 'label': 'f3d23dfd-cc31-46b1-8b1b-bf2d5dd900fc', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000001EA0882CC80>]}
+[0m06:00:46.337604 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'adapter_info', 'label': 'f3d23dfd-cc31-46b1-8b1b-bf2d5dd900fc', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000001EA08535790>]}
+[0m06:00:46.337604 [info ] [MainThread]: Registered adapter: duckdb=1.8.2
+[0m06:00:46.652901 [debug] [MainThread]: checksum: 2f2fb10c73cafe3e79aa104295a8244291492b32b5598ce46af770f7d0bd5194, vars: {}, profile: , target: , version: 1.8.6
+[0m06:00:46.810516 [debug] [MainThread]: Partial parsing enabled: 0 files deleted, 0 files added, 0 files changed.
+[0m06:00:46.810516 [debug] [MainThread]: Partial parsing enabled, no changes found, skipping parsing
+[0m06:00:46.858017 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'load_project', 'label': 'f3d23dfd-cc31-46b1-8b1b-bf2d5dd900fc', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000001EA05FF94C0>]}
+[0m06:00:46.905855 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'resource_counts', 'label': 'f3d23dfd-cc31-46b1-8b1b-bf2d5dd900fc', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000001EA09D7DCA0>]}
+[0m06:00:46.905855 [info ] [MainThread]: Found 7 models, 7 data tests, 421 macros
+[0m06:00:46.921618 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'runnable_timing', 'label': 'f3d23dfd-cc31-46b1-8b1b-bf2d5dd900fc', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000001EA09BFDF40>]}
+[0m06:00:46.921618 [info ] [MainThread]: 
+[0m06:00:46.921618 [debug] [MainThread]: Acquiring new duckdb connection 'master'
+[0m06:00:46.937344 [debug] [ThreadPool]: Acquiring new duckdb connection 'list_warehouse_main'
+[0m06:00:47.058830 [debug] [ThreadPool]: Using duckdb connection "list_warehouse_main"
+[0m06:00:47.058830 [debug] [ThreadPool]: On list_warehouse_main: BEGIN
+[0m06:00:47.058830 [debug] [ThreadPool]: Opening a new connection, currently in state init
+[0m06:00:47.075902 [debug] [ThreadPool]: SQL status: OK in 0.015 seconds
+[0m06:00:47.075902 [debug] [ThreadPool]: Using duckdb connection "list_warehouse_main"
+[0m06:00:47.075902 [debug] [ThreadPool]: On list_warehouse_main: /* {"app": "dbt", "dbt_version": "1.8.6", "profile_name": "meta_product_analytics", "target_name": "dev", "connection_name": "list_warehouse_main"} */
+select
+      'warehouse' as database,
+      table_name as name,
+      table_schema as schema,
+      CASE table_type
+        WHEN 'BASE TABLE' THEN 'table'
+        WHEN 'VIEW' THEN 'view'
+        WHEN 'LOCAL TEMPORARY' THEN 'table'
+        END as type
+    from system.information_schema.tables
+    where table_schema = 'main'
+    and table_catalog = 'warehouse'
+  
+[0m06:00:47.112586 [debug] [ThreadPool]: SQL status: OK in 0.047 seconds
+[0m06:00:47.128500 [debug] [ThreadPool]: On list_warehouse_main: ROLLBACK
+[0m06:00:47.128500 [debug] [ThreadPool]: Failed to rollback 'list_warehouse_main'
+[0m06:00:47.128500 [debug] [ThreadPool]: On list_warehouse_main: Close
+[0m06:00:47.128500 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'runnable_timing', 'label': 'f3d23dfd-cc31-46b1-8b1b-bf2d5dd900fc', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000001EA09D46BD0>]}
+[0m06:00:47.128500 [info ] [MainThread]: Concurrency: 4 threads (target='dev')
+[0m06:00:47.128500 [info ] [MainThread]: 
+[0m06:00:47.144374 [debug] [Thread-1 (]: Began running node model.meta_product_analytics.stg_content
+[0m06:00:47.144374 [debug] [Thread-2 (]: Began running node model.meta_product_analytics.stg_events
+[0m06:00:47.144374 [debug] [Thread-1 (]: Acquiring new duckdb connection 'model.meta_product_analytics.stg_content'
+[0m06:00:47.144374 [debug] [Thread-3 (]: Began running node model.meta_product_analytics.stg_users
+[0m06:00:47.144374 [debug] [Thread-2 (]: Acquiring new duckdb connection 'model.meta_product_analytics.stg_events'
+[0m06:00:47.144374 [debug] [Thread-1 (]: Began compiling node model.meta_product_analytics.stg_content
+[0m06:00:47.144374 [debug] [Thread-3 (]: Acquiring new duckdb connection 'model.meta_product_analytics.stg_users'
+[0m06:00:47.144374 [debug] [Thread-2 (]: Began compiling node model.meta_product_analytics.stg_events
+[0m06:00:47.160300 [debug] [Thread-1 (]: Writing injected SQL for node "model.meta_product_analytics.stg_content"
+[0m06:00:47.160300 [debug] [Thread-3 (]: Began compiling node model.meta_product_analytics.stg_users
+[0m06:00:47.160300 [debug] [Thread-2 (]: Writing injected SQL for node "model.meta_product_analytics.stg_events"
+[0m06:00:47.160300 [debug] [Thread-3 (]: Writing injected SQL for node "model.meta_product_analytics.stg_users"
+[0m06:00:47.176010 [debug] [Thread-1 (]: Began executing node model.meta_product_analytics.stg_content
+[0m06:00:47.176010 [debug] [Thread-1 (]: Finished running node model.meta_product_analytics.stg_content
+[0m06:00:47.176010 [debug] [Thread-2 (]: Began executing node model.meta_product_analytics.stg_events
+[0m06:00:47.176010 [debug] [Thread-4 (]: Began running node model.meta_product_analytics.dim_content
+[0m06:00:47.176010 [debug] [Thread-2 (]: Finished running node model.meta_product_analytics.stg_events
+[0m06:00:47.176010 [debug] [Thread-2 (]: Began running node test.meta_product_analytics.unique_stg_content_content_id.a034585f1a
+[0m06:00:47.176010 [debug] [Thread-2 (]: Re-using an available connection from the pool (formerly model.meta_product_analytics.stg_events, now test.meta_product_analytics.unique_stg_content_content_id.a034585f1a)
+[0m06:00:47.176010 [debug] [Thread-1 (]: Began running node test.meta_product_analytics.not_null_stg_content_content_id.8fd51f55b7
+[0m06:00:47.176010 [debug] [Thread-3 (]: Began executing node model.meta_product_analytics.stg_users
+[0m06:00:47.176010 [debug] [Thread-4 (]: Acquiring new duckdb connection 'model.meta_product_analytics.dim_content'
+[0m06:00:47.176010 [debug] [Thread-2 (]: Began compiling node test.meta_product_analytics.unique_stg_content_content_id.a034585f1a
+[0m06:00:47.176010 [debug] [Thread-1 (]: Re-using an available connection from the pool (formerly model.meta_product_analytics.stg_content, now test.meta_product_analytics.not_null_stg_content_content_id.8fd51f55b7)
+[0m06:00:47.176010 [debug] [Thread-3 (]: Finished running node model.meta_product_analytics.stg_users
+[0m06:00:47.176010 [debug] [Thread-4 (]: Began compiling node model.meta_product_analytics.dim_content
+[0m06:00:47.191852 [debug] [Thread-1 (]: Began compiling node test.meta_product_analytics.not_null_stg_content_content_id.8fd51f55b7
+[0m06:00:47.191852 [debug] [Thread-2 (]: Writing injected SQL for node "test.meta_product_analytics.unique_stg_content_content_id.a034585f1a"
+[0m06:00:47.191852 [debug] [Thread-3 (]: Began running node model.meta_product_analytics.fct_product_events
+[0m06:00:47.205270 [debug] [Thread-4 (]: Writing injected SQL for node "model.meta_product_analytics.dim_content"
+[0m06:00:47.207852 [debug] [Thread-1 (]: Writing injected SQL for node "test.meta_product_analytics.not_null_stg_content_content_id.8fd51f55b7"
+[0m06:00:47.207852 [debug] [Thread-3 (]: Re-using an available connection from the pool (formerly model.meta_product_analytics.stg_users, now model.meta_product_analytics.fct_product_events)
+[0m06:00:47.207852 [debug] [Thread-3 (]: Began compiling node model.meta_product_analytics.fct_product_events
+[0m06:00:47.207852 [debug] [Thread-3 (]: Writing injected SQL for node "model.meta_product_analytics.fct_product_events"
+[0m06:00:47.207852 [debug] [Thread-2 (]: Began executing node test.meta_product_analytics.unique_stg_content_content_id.a034585f1a
+[0m06:00:47.223806 [debug] [Thread-2 (]: Finished running node test.meta_product_analytics.unique_stg_content_content_id.a034585f1a
+[0m06:00:47.223806 [debug] [Thread-2 (]: Began running node test.meta_product_analytics.accepted_values_stg_events_event_type__view__like__impression__follow__session_start.16fff0a18c
+[0m06:00:47.223806 [debug] [Thread-2 (]: Re-using an available connection from the pool (formerly test.meta_product_analytics.unique_stg_content_content_id.a034585f1a, now test.meta_product_analytics.accepted_values_stg_events_event_type__view__like__impression__follow__session_start.16fff0a18c)
+[0m06:00:47.223806 [debug] [Thread-2 (]: Began compiling node test.meta_product_analytics.accepted_values_stg_events_event_type__view__like__impression__follow__session_start.16fff0a18c
+[0m06:00:47.223806 [debug] [Thread-2 (]: Writing injected SQL for node "test.meta_product_analytics.accepted_values_stg_events_event_type__view__like__impression__follow__session_start.16fff0a18c"
+[0m06:00:47.223806 [debug] [Thread-3 (]: Began executing node model.meta_product_analytics.fct_product_events
+[0m06:00:47.223806 [debug] [Thread-1 (]: Began executing node test.meta_product_analytics.not_null_stg_content_content_id.8fd51f55b7
+[0m06:00:47.223806 [debug] [Thread-4 (]: Began executing node model.meta_product_analytics.dim_content
+[0m06:00:47.239512 [debug] [Thread-3 (]: Finished running node model.meta_product_analytics.fct_product_events
+[0m06:00:47.239512 [debug] [Thread-1 (]: Finished running node test.meta_product_analytics.not_null_stg_content_content_id.8fd51f55b7
+[0m06:00:47.239512 [debug] [Thread-4 (]: Finished running node model.meta_product_analytics.dim_content
+[0m06:00:47.239512 [debug] [Thread-4 (]: Began running node model.meta_product_analytics.dim_users
+[0m06:00:47.239512 [debug] [Thread-4 (]: Re-using an available connection from the pool (formerly model.meta_product_analytics.dim_content, now model.meta_product_analytics.dim_users)
+[0m06:00:47.239512 [debug] [Thread-4 (]: Began compiling node model.meta_product_analytics.dim_users
+[0m06:00:47.239512 [debug] [Thread-3 (]: Began running node test.meta_product_analytics.not_null_stg_events_event_id.715b3f7012
+[0m06:00:47.239512 [debug] [Thread-1 (]: Began running node test.meta_product_analytics.unique_stg_events_event_id.66ebb17438
+[0m06:00:47.239512 [debug] [Thread-2 (]: Began executing node test.meta_product_analytics.accepted_values_stg_events_event_type__view__like__impression__follow__session_start.16fff0a18c
+[0m06:00:47.239512 [debug] [Thread-4 (]: Writing injected SQL for node "model.meta_product_analytics.dim_users"
+[0m06:00:47.239512 [debug] [Thread-3 (]: Re-using an available connection from the pool (formerly model.meta_product_analytics.fct_product_events, now test.meta_product_analytics.not_null_stg_events_event_id.715b3f7012)
+[0m06:00:47.239512 [debug] [Thread-1 (]: Re-using an available connection from the pool (formerly test.meta_product_analytics.not_null_stg_content_content_id.8fd51f55b7, now test.meta_product_analytics.unique_stg_events_event_id.66ebb17438)
+[0m06:00:47.239512 [debug] [Thread-2 (]: Finished running node test.meta_product_analytics.accepted_values_stg_events_event_type__view__like__impression__follow__session_start.16fff0a18c
+[0m06:00:47.239512 [debug] [Thread-3 (]: Began compiling node test.meta_product_analytics.not_null_stg_events_event_id.715b3f7012
+[0m06:00:47.239512 [debug] [Thread-1 (]: Began compiling node test.meta_product_analytics.unique_stg_events_event_id.66ebb17438
+[0m06:00:47.239512 [debug] [Thread-4 (]: Began executing node model.meta_product_analytics.dim_users
+[0m06:00:47.239512 [debug] [Thread-2 (]: Began running node test.meta_product_analytics.not_null_stg_users_user_id.980dfc1b77
+[0m06:00:47.255601 [debug] [Thread-3 (]: Writing injected SQL for node "test.meta_product_analytics.not_null_stg_events_event_id.715b3f7012"
+[0m06:00:47.255601 [debug] [Thread-1 (]: Writing injected SQL for node "test.meta_product_analytics.unique_stg_events_event_id.66ebb17438"
+[0m06:00:47.255601 [debug] [Thread-4 (]: Finished running node model.meta_product_analytics.dim_users
+[0m06:00:47.255601 [debug] [Thread-2 (]: Re-using an available connection from the pool (formerly test.meta_product_analytics.accepted_values_stg_events_event_type__view__like__impression__follow__session_start.16fff0a18c, now test.meta_product_analytics.not_null_stg_users_user_id.980dfc1b77)
+[0m06:00:47.255601 [debug] [Thread-4 (]: Began running node test.meta_product_analytics.unique_stg_users_user_id.c2ff477e6b
+[0m06:00:47.255601 [debug] [Thread-2 (]: Began compiling node test.meta_product_analytics.not_null_stg_users_user_id.980dfc1b77
+[0m06:00:47.255601 [debug] [Thread-3 (]: Began executing node test.meta_product_analytics.not_null_stg_events_event_id.715b3f7012
+[0m06:00:47.255601 [debug] [Thread-1 (]: Began executing node test.meta_product_analytics.unique_stg_events_event_id.66ebb17438
+[0m06:00:47.255601 [debug] [Thread-4 (]: Re-using an available connection from the pool (formerly model.meta_product_analytics.dim_users, now test.meta_product_analytics.unique_stg_users_user_id.c2ff477e6b)
+[0m06:00:47.271292 [debug] [Thread-2 (]: Writing injected SQL for node "test.meta_product_analytics.not_null_stg_users_user_id.980dfc1b77"
+[0m06:00:47.271292 [debug] [Thread-3 (]: Finished running node test.meta_product_analytics.not_null_stg_events_event_id.715b3f7012
+[0m06:00:47.271292 [debug] [Thread-1 (]: Finished running node test.meta_product_analytics.unique_stg_events_event_id.66ebb17438
+[0m06:00:47.271292 [debug] [Thread-4 (]: Began compiling node test.meta_product_analytics.unique_stg_users_user_id.c2ff477e6b
+[0m06:00:47.271292 [debug] [Thread-3 (]: Began running node model.meta_product_analytics.agg_product_kpis
+[0m06:00:47.271292 [debug] [Thread-4 (]: Writing injected SQL for node "test.meta_product_analytics.unique_stg_users_user_id.c2ff477e6b"
+[0m06:00:47.271292 [debug] [Thread-3 (]: Re-using an available connection from the pool (formerly test.meta_product_analytics.not_null_stg_events_event_id.715b3f7012, now model.meta_product_analytics.agg_product_kpis)
+[0m06:00:47.271292 [debug] [Thread-2 (]: Began executing node test.meta_product_analytics.not_null_stg_users_user_id.980dfc1b77
+[0m06:00:47.271292 [debug] [Thread-4 (]: Began executing node test.meta_product_analytics.unique_stg_users_user_id.c2ff477e6b
+[0m06:00:47.271292 [debug] [Thread-3 (]: Began compiling node model.meta_product_analytics.agg_product_kpis
+[0m06:00:47.271292 [debug] [Thread-2 (]: Finished running node test.meta_product_analytics.not_null_stg_users_user_id.980dfc1b77
+[0m06:00:47.287389 [debug] [Thread-4 (]: Finished running node test.meta_product_analytics.unique_stg_users_user_id.c2ff477e6b
+[0m06:00:47.287389 [debug] [Thread-3 (]: Writing injected SQL for node "model.meta_product_analytics.agg_product_kpis"
+[0m06:00:47.287389 [debug] [Thread-3 (]: Began executing node model.meta_product_analytics.agg_product_kpis
+[0m06:00:47.287389 [debug] [Thread-3 (]: Finished running node model.meta_product_analytics.agg_product_kpis
+[0m06:00:47.287389 [debug] [MainThread]: Connection 'master' was properly closed.
+[0m06:00:47.287389 [debug] [MainThread]: Connection 'list_warehouse_main' was properly closed.
+[0m06:00:47.287389 [debug] [MainThread]: Connection 'test.meta_product_analytics.unique_stg_events_event_id.66ebb17438' was properly closed.
+[0m06:00:47.287389 [debug] [MainThread]: Connection 'test.meta_product_analytics.not_null_stg_users_user_id.980dfc1b77' was properly closed.
+[0m06:00:47.287389 [debug] [MainThread]: Connection 'model.meta_product_analytics.agg_product_kpis' was properly closed.
+[0m06:00:47.287389 [debug] [MainThread]: Connection 'test.meta_product_analytics.unique_stg_users_user_id.c2ff477e6b' was properly closed.
+[0m06:00:47.287389 [debug] [MainThread]: Command end result
+[0m06:00:47.382593 [debug] [MainThread]: Acquiring new duckdb connection 'generate_catalog'
+[0m06:00:47.382593 [info ] [MainThread]: Building catalog
+[0m06:00:47.398304 [debug] [ThreadPool]: Acquiring new duckdb connection 'warehouse.information_schema'
+[0m06:00:47.405711 [debug] [ThreadPool]: Using duckdb connection "warehouse.information_schema"
+[0m06:00:47.405711 [debug] [ThreadPool]: On warehouse.information_schema: BEGIN
+[0m06:00:47.405711 [debug] [ThreadPool]: Opening a new connection, currently in state init
+[0m06:00:47.414289 [debug] [ThreadPool]: SQL status: OK in 0.010 seconds
+[0m06:00:47.414289 [debug] [ThreadPool]: Using duckdb connection "warehouse.information_schema"
+[0m06:00:47.414289 [debug] [ThreadPool]: On warehouse.information_schema: /* {"app": "dbt", "dbt_version": "1.8.6", "profile_name": "meta_product_analytics", "target_name": "dev", "connection_name": "warehouse.information_schema"} */
+with relations AS (
+      select
+        t.table_name
+        , t.database_name
+        , t.schema_name
+        , 'BASE TABLE' as table_type
+        , t.comment as table_comment
+      from duckdb_tables() t
+      WHERE t.database_name = 'warehouse'
+      UNION ALL
+      SELECT v.view_name as table_name
+      , v.database_name
+      , v.schema_name
+      , 'VIEW' as table_type
+      , v.comment as table_comment
+      from duckdb_views() v
+      WHERE v.database_name = 'warehouse'
+    )
+    select
+        'warehouse' as table_database,
+        r.schema_name as table_schema,
+        r.table_name,
+        r.table_type,
+        r.table_comment,
+        c.column_name,
+        c.column_index as column_index,
+        c.data_type as column_type,
+        c.comment as column_comment,
+        '' as table_owner
+    FROM relations r JOIN duckdb_columns() c ON r.schema_name = c.schema_name AND r.table_name = c.table_name
+    WHERE (upper(r.schema_name) = upper('main'))
+    ORDER BY
+        r.schema_name,
+        r.table_name,
+        c.column_index
+[0m06:00:47.461543 [debug] [ThreadPool]: SQL status: OK in 0.044 seconds
+[0m06:00:47.477303 [debug] [ThreadPool]: On warehouse.information_schema: ROLLBACK
+[0m06:00:47.477303 [debug] [ThreadPool]: Failed to rollback 'warehouse.information_schema'
+[0m06:00:47.477303 [debug] [ThreadPool]: On warehouse.information_schema: Close
+[0m06:00:47.540208 [info ] [MainThread]: Catalog written to C:\Users\khema\Downloads\meta_product_analytics_de_project\meta_product_analytics_de_project\dbt_project\target\catalog.json
+[0m06:00:47.540208 [debug] [MainThread]: Command `dbt docs generate` succeeded at 06:00:47.540208 after 1.75 seconds
+[0m06:00:47.540208 [debug] [MainThread]: Connection 'generate_catalog' was properly closed.
+[0m06:00:47.540208 [debug] [MainThread]: Connection 'warehouse.information_schema' was properly closed.
+[0m06:00:47.540208 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'end', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000001EA017B5040>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000001EA0848A870>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000001EA08488FB0>]}
+[0m06:00:47.540208 [debug] [MainThread]: Flushing usage events
+[0m06:01:04.519069 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'start', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000001D730F96F30>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000001D7333A5220>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000001D7333A4170>]}
+
+
+============================== 06:01:04.519069 | 8d59f447-0370-4fb6-a216-d661fd1cffbc ==============================
+[0m06:01:04.519069 [info ] [MainThread]: Running with dbt=1.8.6
+[0m06:01:04.519069 [debug] [MainThread]: running dbt with arguments {'printer_width': '80', 'indirect_selection': 'eager', 'write_json': 'True', 'log_cache_events': 'False', 'partial_parse': 'True', 'cache_selected_only': 'False', 'warn_error': 'None', 'debug': 'False', 'profiles_dir': 'C:\\Users\\khema\\Downloads\\meta_product_analytics_de_project\\meta_product_analytics_de_project\\dbt_project', 'log_path': 'C:\\Users\\khema\\Downloads\\meta_product_analytics_de_project\\meta_product_analytics_de_project\\dbt_project\\logs', 'version_check': 'True', 'fail_fast': 'False', 'use_colors': 'True', 'use_experimental_parser': 'False', 'empty': 'None', 'quiet': 'False', 'no_print': 'None', 'log_format': 'default', 'introspect': 'True', 'warn_error_options': 'WarnErrorOptions(include=[], exclude=[])', 'invocation_command': 'dbt docs serve', 'target_path': 'None', 'static_parser': 'True', 'send_anonymous_usage_stats': 'True'}
+[0m06:01:04.784496 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'project_id', 'label': '8d59f447-0370-4fb6-a216-d661fd1cffbc', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000001D733F09EE0>]}
+[0m06:01:04.849285 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'adapter_info', 'label': '8d59f447-0370-4fb6-a216-d661fd1cffbc', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000001D734FA4CB0>]}
+[0m06:02:49.107143 [error] [MainThread]: Encountered an error:
+
+[0m06:02:49.196666 [error] [MainThread]: Traceback (most recent call last):
+  File "C:\Users\khema\Downloads\meta_product_analytics_de_project\meta_product_analytics_de_project\.venv312\Lib\site-packages\dbt\cli\requires.py", line 138, in wrapper
+    result, success = func(*args, **kwargs)
+                      ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\khema\Downloads\meta_product_analytics_de_project\meta_product_analytics_de_project\.venv312\Lib\site-packages\dbt\cli\requires.py", line 101, in wrapper
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\khema\Downloads\meta_product_analytics_de_project\meta_product_analytics_de_project\.venv312\Lib\site-packages\dbt\cli\requires.py", line 218, in wrapper
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\khema\Downloads\meta_product_analytics_de_project\meta_product_analytics_de_project\.venv312\Lib\site-packages\dbt\cli\requires.py", line 247, in wrapper
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\khema\Downloads\meta_product_analytics_de_project\meta_product_analytics_de_project\.venv312\Lib\site-packages\dbt\cli\requires.py", line 294, in wrapper
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\khema\Downloads\meta_product_analytics_de_project\meta_product_analytics_de_project\.venv312\Lib\site-packages\dbt\cli\main.py", line 303, in docs_serve
+    results = task.run()
+              ^^^^^^^^^^
+  File "C:\Users\khema\Downloads\meta_product_analytics_de_project\meta_product_analytics_de_project\.venv312\Lib\site-packages\dbt\task\docs\serve.py", line 29, in run
+    httpd.serve_forever()
+  File "C:\Users\khema\AppData\Local\Programs\Python\Python312\Lib\socketserver.py", line 240, in serve_forever
+    self._handle_request_noblock()
+  File "C:\Users\khema\AppData\Local\Programs\Python\Python312\Lib\socketserver.py", line 318, in _handle_request_noblock
+    self.process_request(request, client_address)
+  File "C:\Users\khema\AppData\Local\Programs\Python\Python312\Lib\socketserver.py", line 349, in process_request
+    self.finish_request(request, client_address)
+  File "C:\Users\khema\AppData\Local\Programs\Python\Python312\Lib\socketserver.py", line 362, in finish_request
+    self.RequestHandlerClass(request, client_address, self)
+  File "C:\Users\khema\AppData\Local\Programs\Python\Python312\Lib\http\server.py", line 672, in __init__
+    super().__init__(*args, **kwargs)
+  File "C:\Users\khema\AppData\Local\Programs\Python\Python312\Lib\socketserver.py", line 766, in __init__
+    self.handle()
+  File "C:\Users\khema\AppData\Local\Programs\Python\Python312\Lib\http\server.py", line 436, in handle
+    self.handle_one_request()
+  File "C:\Users\khema\AppData\Local\Programs\Python\Python312\Lib\http\server.py", line 404, in handle_one_request
+    self.raw_requestline = self.rfile.readline(65537)
+                           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\khema\AppData\Local\Programs\Python\Python312\Lib\socket.py", line 720, in readinto
+    return self._sock.recv_into(b)
+           ^^^^^^^^^^^^^^^^^^^^^^^
+KeyboardInterrupt
+
+[0m06:02:49.201140 [debug] [MainThread]: Command `dbt docs serve` failed at 06:02:49.201140 after 104.84 seconds
+[0m06:02:49.201140 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'end', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000001D733B6C800>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000001D733F15760>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000001D732F2A990>]}
+[0m06:02:49.201140 [debug] [MainThread]: Flushing usage events
+[0m06:02:56.985512 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'start', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x00000263C4ECBD70>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x00000263BE295040>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x00000263C463CE00>]}
+
+
+============================== 06:02:56.997750 | 17a9a92e-6d12-4799-a03d-180ab92cf3e7 ==============================
+[0m06:02:56.997750 [info ] [MainThread]: Running with dbt=1.8.6
+[0m06:02:56.997750 [debug] [MainThread]: running dbt with arguments {'printer_width': '80', 'indirect_selection': 'eager', 'log_cache_events': 'False', 'write_json': 'True', 'partial_parse': 'True', 'cache_selected_only': 'False', 'warn_error': 'None', 'debug': 'False', 'fail_fast': 'False', 'log_path': 'C:\\Users\\khema\\Downloads\\meta_product_analytics_de_project\\meta_product_analytics_de_project\\dbt_project\\logs', 'version_check': 'True', 'profiles_dir': 'C:\\Users\\khema\\Downloads\\meta_product_analytics_de_project\\meta_product_analytics_de_project\\dbt_project', 'use_colors': 'True', 'use_experimental_parser': 'False', 'empty': 'None', 'quiet': 'False', 'no_print': 'None', 'warn_error_options': 'WarnErrorOptions(include=[], exclude=[])', 'invocation_command': 'dbt docs generate', 'introspect': 'True', 'static_parser': 'True', 'target_path': 'None', 'log_format': 'default', 'send_anonymous_usage_stats': 'True'}
+[0m06:02:57.388346 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'project_id', 'label': '17a9a92e-6d12-4799-a03d-180ab92cf3e7', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x00000263C4073B60>]}
+[0m06:02:57.505004 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'adapter_info', 'label': '17a9a92e-6d12-4799-a03d-180ab92cf3e7', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x00000263C632F2F0>]}
+[0m06:02:57.509485 [info ] [MainThread]: Registered adapter: duckdb=1.8.2
+[0m06:02:57.966072 [debug] [MainThread]: checksum: 2f2fb10c73cafe3e79aa104295a8244291492b32b5598ce46af770f7d0bd5194, vars: {}, profile: , target: , version: 1.8.6
+[0m06:02:58.164706 [debug] [MainThread]: Partial parsing enabled: 0 files deleted, 0 files added, 0 files changed.
+[0m06:02:58.164706 [debug] [MainThread]: Partial parsing enabled, no changes found, skipping parsing
+[0m06:02:58.227373 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'load_project', 'label': '17a9a92e-6d12-4799-a03d-180ab92cf3e7', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x00000263C65CC0E0>]}
+[0m06:02:58.296038 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'resource_counts', 'label': '17a9a92e-6d12-4799-a03d-180ab92cf3e7', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x00000263C665D3A0>]}
+[0m06:02:58.296038 [info ] [MainThread]: Found 7 models, 7 data tests, 421 macros
+[0m06:02:58.296038 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'runnable_timing', 'label': '17a9a92e-6d12-4799-a03d-180ab92cf3e7', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x00000263C474C440>]}
+[0m06:02:58.303833 [info ] [MainThread]: 
+[0m06:02:58.306461 [debug] [MainThread]: Acquiring new duckdb connection 'master'
+[0m06:02:58.317623 [debug] [ThreadPool]: Acquiring new duckdb connection 'list_warehouse_main'
+[0m06:02:58.436036 [debug] [ThreadPool]: Using duckdb connection "list_warehouse_main"
+[0m06:02:58.436036 [debug] [ThreadPool]: On list_warehouse_main: BEGIN
+[0m06:02:58.436036 [debug] [ThreadPool]: Opening a new connection, currently in state init
+[0m06:02:58.467833 [debug] [ThreadPool]: SQL status: OK in 0.016 seconds
+[0m06:02:58.467833 [debug] [ThreadPool]: Using duckdb connection "list_warehouse_main"
+[0m06:02:58.467833 [debug] [ThreadPool]: On list_warehouse_main: /* {"app": "dbt", "dbt_version": "1.8.6", "profile_name": "meta_product_analytics", "target_name": "dev", "connection_name": "list_warehouse_main"} */
+select
+      'warehouse' as database,
+      table_name as name,
+      table_schema as schema,
+      CASE table_type
+        WHEN 'BASE TABLE' THEN 'table'
+        WHEN 'VIEW' THEN 'view'
+        WHEN 'LOCAL TEMPORARY' THEN 'table'
+        END as type
+    from system.information_schema.tables
+    where table_schema = 'main'
+    and table_catalog = 'warehouse'
+  
+[0m06:02:58.517853 [debug] [ThreadPool]: SQL status: OK in 0.049 seconds
+[0m06:02:58.521904 [debug] [ThreadPool]: On list_warehouse_main: ROLLBACK
+[0m06:02:58.523936 [debug] [ThreadPool]: Failed to rollback 'list_warehouse_main'
+[0m06:02:58.525963 [debug] [ThreadPool]: On list_warehouse_main: Close
+[0m06:02:58.532485 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'runnable_timing', 'label': '17a9a92e-6d12-4799-a03d-180ab92cf3e7', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x00000263C62D1610>]}
+[0m06:02:58.532485 [info ] [MainThread]: Concurrency: 4 threads (target='dev')
+[0m06:02:58.535571 [info ] [MainThread]: 
+[0m06:02:58.544506 [debug] [Thread-1 (]: Began running node model.meta_product_analytics.stg_content
+[0m06:02:58.544506 [debug] [Thread-2 (]: Began running node model.meta_product_analytics.stg_events
+[0m06:02:58.548266 [debug] [Thread-1 (]: Acquiring new duckdb connection 'model.meta_product_analytics.stg_content'
+[0m06:02:58.548266 [debug] [Thread-3 (]: Began running node model.meta_product_analytics.stg_users
+[0m06:02:58.548266 [debug] [Thread-2 (]: Acquiring new duckdb connection 'model.meta_product_analytics.stg_events'
+[0m06:02:58.548266 [debug] [Thread-1 (]: Began compiling node model.meta_product_analytics.stg_content
+[0m06:02:58.548266 [debug] [Thread-3 (]: Acquiring new duckdb connection 'model.meta_product_analytics.stg_users'
+[0m06:02:58.548266 [debug] [Thread-2 (]: Began compiling node model.meta_product_analytics.stg_events
+[0m06:02:58.560548 [debug] [Thread-3 (]: Began compiling node model.meta_product_analytics.stg_users
+[0m06:02:58.566111 [debug] [Thread-1 (]: Writing injected SQL for node "model.meta_product_analytics.stg_content"
+[0m06:02:58.566111 [debug] [Thread-2 (]: Writing injected SQL for node "model.meta_product_analytics.stg_events"
+[0m06:02:58.570603 [debug] [Thread-3 (]: Writing injected SQL for node "model.meta_product_analytics.stg_users"
+[0m06:02:58.570603 [debug] [Thread-2 (]: Began executing node model.meta_product_analytics.stg_events
+[0m06:02:58.574172 [debug] [Thread-2 (]: Finished running node model.meta_product_analytics.stg_events
+[0m06:02:58.576193 [debug] [Thread-1 (]: Began executing node model.meta_product_analytics.stg_content
+[0m06:02:58.578208 [debug] [Thread-1 (]: Finished running node model.meta_product_analytics.stg_content
+[0m06:02:58.576193 [debug] [Thread-3 (]: Began executing node model.meta_product_analytics.stg_users
+[0m06:02:58.581461 [debug] [Thread-3 (]: Finished running node model.meta_product_analytics.stg_users
+[0m06:02:58.581461 [debug] [Thread-4 (]: Began running node model.meta_product_analytics.dim_content
+[0m06:02:58.583850 [debug] [Thread-4 (]: Acquiring new duckdb connection 'model.meta_product_analytics.dim_content'
+[0m06:02:58.583850 [debug] [Thread-4 (]: Began compiling node model.meta_product_analytics.dim_content
+[0m06:02:58.583850 [debug] [Thread-4 (]: Writing injected SQL for node "model.meta_product_analytics.dim_content"
+[0m06:02:58.583850 [debug] [Thread-2 (]: Began running node model.meta_product_analytics.fct_product_events
+[0m06:02:58.583850 [debug] [Thread-1 (]: Began running node test.meta_product_analytics.accepted_values_stg_events_event_type__view__like__impression__follow__session_start.16fff0a18c
+[0m06:02:58.583850 [debug] [Thread-2 (]: Re-using an available connection from the pool (formerly model.meta_product_analytics.stg_events, now model.meta_product_analytics.fct_product_events)
+[0m06:02:58.583850 [debug] [Thread-3 (]: Began running node test.meta_product_analytics.not_null_stg_content_content_id.8fd51f55b7
+[0m06:02:58.583850 [debug] [Thread-1 (]: Re-using an available connection from the pool (formerly model.meta_product_analytics.stg_content, now test.meta_product_analytics.accepted_values_stg_events_event_type__view__like__impression__follow__session_start.16fff0a18c)
+[0m06:02:58.583850 [debug] [Thread-2 (]: Began compiling node model.meta_product_analytics.fct_product_events
+[0m06:02:58.583850 [debug] [Thread-3 (]: Re-using an available connection from the pool (formerly model.meta_product_analytics.stg_users, now test.meta_product_analytics.not_null_stg_content_content_id.8fd51f55b7)
+[0m06:02:58.583850 [debug] [Thread-1 (]: Began compiling node test.meta_product_analytics.accepted_values_stg_events_event_type__view__like__impression__follow__session_start.16fff0a18c
+[0m06:02:58.583850 [debug] [Thread-4 (]: Began executing node model.meta_product_analytics.dim_content
+[0m06:02:58.598962 [debug] [Thread-2 (]: Writing injected SQL for node "model.meta_product_analytics.fct_product_events"
+[0m06:02:58.598962 [debug] [Thread-3 (]: Began compiling node test.meta_product_analytics.not_null_stg_content_content_id.8fd51f55b7
+[0m06:02:58.611678 [debug] [Thread-1 (]: Writing injected SQL for node "test.meta_product_analytics.accepted_values_stg_events_event_type__view__like__impression__follow__session_start.16fff0a18c"
+[0m06:02:58.611678 [debug] [Thread-4 (]: Finished running node model.meta_product_analytics.dim_content
+[0m06:02:58.627631 [debug] [Thread-2 (]: Began executing node model.meta_product_analytics.fct_product_events
+[0m06:02:58.638023 [debug] [Thread-3 (]: Writing injected SQL for node "test.meta_product_analytics.not_null_stg_content_content_id.8fd51f55b7"
+[0m06:02:58.639272 [debug] [Thread-4 (]: Began running node test.meta_product_analytics.not_null_stg_events_event_id.715b3f7012
+[0m06:02:58.639272 [debug] [Thread-2 (]: Finished running node model.meta_product_analytics.fct_product_events
+[0m06:02:58.639272 [debug] [Thread-1 (]: Began executing node test.meta_product_analytics.accepted_values_stg_events_event_type__view__like__impression__follow__session_start.16fff0a18c
+[0m06:02:58.642685 [debug] [Thread-4 (]: Re-using an available connection from the pool (formerly model.meta_product_analytics.dim_content, now test.meta_product_analytics.not_null_stg_events_event_id.715b3f7012)
+[0m06:02:58.642685 [debug] [Thread-2 (]: Began running node test.meta_product_analytics.unique_stg_content_content_id.a034585f1a
+[0m06:02:58.644448 [debug] [Thread-1 (]: Finished running node test.meta_product_analytics.accepted_values_stg_events_event_type__view__like__impression__follow__session_start.16fff0a18c
+[0m06:02:58.646145 [debug] [Thread-3 (]: Began executing node test.meta_product_analytics.not_null_stg_content_content_id.8fd51f55b7
+[0m06:02:58.646145 [debug] [Thread-4 (]: Began compiling node test.meta_product_analytics.not_null_stg_events_event_id.715b3f7012
+[0m06:02:58.646145 [debug] [Thread-2 (]: Re-using an available connection from the pool (formerly model.meta_product_analytics.fct_product_events, now test.meta_product_analytics.unique_stg_content_content_id.a034585f1a)
+[0m06:02:58.648904 [debug] [Thread-1 (]: Began running node test.meta_product_analytics.unique_stg_events_event_id.66ebb17438
+[0m06:02:58.650673 [debug] [Thread-3 (]: Finished running node test.meta_product_analytics.not_null_stg_content_content_id.8fd51f55b7
+[0m06:02:58.652525 [debug] [Thread-4 (]: Writing injected SQL for node "test.meta_product_analytics.not_null_stg_events_event_id.715b3f7012"
+[0m06:02:58.652525 [debug] [Thread-2 (]: Began compiling node test.meta_product_analytics.unique_stg_content_content_id.a034585f1a
+[0m06:02:58.652525 [debug] [Thread-1 (]: Re-using an available connection from the pool (formerly test.meta_product_analytics.accepted_values_stg_events_event_type__view__like__impression__follow__session_start.16fff0a18c, now test.meta_product_analytics.unique_stg_events_event_id.66ebb17438)
+[0m06:02:58.652525 [debug] [Thread-3 (]: Began running node model.meta_product_analytics.dim_users
+[0m06:02:58.675826 [debug] [Thread-2 (]: Writing injected SQL for node "test.meta_product_analytics.unique_stg_content_content_id.a034585f1a"
+[0m06:02:58.676698 [debug] [Thread-4 (]: Began executing node test.meta_product_analytics.not_null_stg_events_event_id.715b3f7012
+[0m06:02:58.676698 [debug] [Thread-1 (]: Began compiling node test.meta_product_analytics.unique_stg_events_event_id.66ebb17438
+[0m06:02:58.676698 [debug] [Thread-3 (]: Re-using an available connection from the pool (formerly test.meta_product_analytics.not_null_stg_content_content_id.8fd51f55b7, now model.meta_product_analytics.dim_users)
+[0m06:02:58.676698 [debug] [Thread-4 (]: Finished running node test.meta_product_analytics.not_null_stg_events_event_id.715b3f7012
+[0m06:02:58.683413 [debug] [Thread-1 (]: Writing injected SQL for node "test.meta_product_analytics.unique_stg_events_event_id.66ebb17438"
+[0m06:02:58.683413 [debug] [Thread-3 (]: Began compiling node model.meta_product_analytics.dim_users
+[0m06:02:58.683413 [debug] [Thread-4 (]: Began running node test.meta_product_analytics.not_null_stg_users_user_id.980dfc1b77
+[0m06:02:58.683413 [debug] [Thread-2 (]: Began executing node test.meta_product_analytics.unique_stg_content_content_id.a034585f1a
+[0m06:02:58.695444 [debug] [Thread-1 (]: Began executing node test.meta_product_analytics.unique_stg_events_event_id.66ebb17438
+[0m06:02:58.697463 [debug] [Thread-3 (]: Writing injected SQL for node "model.meta_product_analytics.dim_users"
+[0m06:02:58.697463 [debug] [Thread-2 (]: Finished running node test.meta_product_analytics.unique_stg_content_content_id.a034585f1a
+[0m06:02:58.699478 [debug] [Thread-1 (]: Finished running node test.meta_product_analytics.unique_stg_events_event_id.66ebb17438
+[0m06:02:58.692225 [debug] [Thread-4 (]: Re-using an available connection from the pool (formerly test.meta_product_analytics.not_null_stg_events_event_id.715b3f7012, now test.meta_product_analytics.not_null_stg_users_user_id.980dfc1b77)
+[0m06:02:58.700340 [debug] [Thread-2 (]: Began running node test.meta_product_analytics.unique_stg_users_user_id.c2ff477e6b
+[0m06:02:58.700340 [debug] [Thread-4 (]: Began compiling node test.meta_product_analytics.not_null_stg_users_user_id.980dfc1b77
+[0m06:02:58.701352 [debug] [Thread-2 (]: Re-using an available connection from the pool (formerly test.meta_product_analytics.unique_stg_content_content_id.a034585f1a, now test.meta_product_analytics.unique_stg_users_user_id.c2ff477e6b)
+[0m06:02:58.706776 [debug] [Thread-4 (]: Writing injected SQL for node "test.meta_product_analytics.not_null_stg_users_user_id.980dfc1b77"
+[0m06:02:58.707787 [debug] [Thread-2 (]: Began compiling node test.meta_product_analytics.unique_stg_users_user_id.c2ff477e6b
+[0m06:02:58.707787 [debug] [Thread-3 (]: Began executing node model.meta_product_analytics.dim_users
+[0m06:02:58.713997 [debug] [Thread-2 (]: Writing injected SQL for node "test.meta_product_analytics.unique_stg_users_user_id.c2ff477e6b"
+[0m06:02:58.713997 [debug] [Thread-3 (]: Finished running node model.meta_product_analytics.dim_users
+[0m06:02:58.716064 [debug] [Thread-4 (]: Began executing node test.meta_product_analytics.not_null_stg_users_user_id.980dfc1b77
+[0m06:02:58.716064 [debug] [Thread-4 (]: Finished running node test.meta_product_analytics.not_null_stg_users_user_id.980dfc1b77
+[0m06:02:58.716064 [debug] [Thread-1 (]: Began running node model.meta_product_analytics.agg_product_kpis
+[0m06:02:58.716064 [debug] [Thread-2 (]: Began executing node test.meta_product_analytics.unique_stg_users_user_id.c2ff477e6b
+[0m06:02:58.716064 [debug] [Thread-1 (]: Re-using an available connection from the pool (formerly test.meta_product_analytics.unique_stg_events_event_id.66ebb17438, now model.meta_product_analytics.agg_product_kpis)
+[0m06:02:58.716064 [debug] [Thread-2 (]: Finished running node test.meta_product_analytics.unique_stg_users_user_id.c2ff477e6b
+[0m06:02:58.721631 [debug] [Thread-1 (]: Began compiling node model.meta_product_analytics.agg_product_kpis
+[0m06:02:58.726700 [debug] [Thread-1 (]: Writing injected SQL for node "model.meta_product_analytics.agg_product_kpis"
+[0m06:02:58.726700 [debug] [Thread-1 (]: Began executing node model.meta_product_analytics.agg_product_kpis
+[0m06:02:58.729461 [debug] [Thread-1 (]: Finished running node model.meta_product_analytics.agg_product_kpis
+[0m06:02:58.731981 [debug] [MainThread]: Connection 'master' was properly closed.
+[0m06:02:58.731981 [debug] [MainThread]: Connection 'list_warehouse_main' was properly closed.
+[0m06:02:58.731981 [debug] [MainThread]: Connection 'model.meta_product_analytics.agg_product_kpis' was properly closed.
+[0m06:02:58.731981 [debug] [MainThread]: Connection 'test.meta_product_analytics.unique_stg_users_user_id.c2ff477e6b' was properly closed.
+[0m06:02:58.731981 [debug] [MainThread]: Connection 'model.meta_product_analytics.dim_users' was properly closed.
+[0m06:02:58.731981 [debug] [MainThread]: Connection 'test.meta_product_analytics.not_null_stg_users_user_id.980dfc1b77' was properly closed.
+[0m06:02:58.731981 [debug] [MainThread]: Command end result
+[0m06:02:58.856361 [debug] [MainThread]: Acquiring new duckdb connection 'generate_catalog'
+[0m06:02:58.856361 [info ] [MainThread]: Building catalog
+[0m06:02:58.872687 [debug] [ThreadPool]: Acquiring new duckdb connection 'warehouse.information_schema'
+[0m06:02:58.885310 [debug] [ThreadPool]: Using duckdb connection "warehouse.information_schema"
+[0m06:02:58.885310 [debug] [ThreadPool]: On warehouse.information_schema: BEGIN
+[0m06:02:58.885310 [debug] [ThreadPool]: Opening a new connection, currently in state init
+[0m06:02:58.899019 [debug] [ThreadPool]: SQL status: OK in 0.011 seconds
+[0m06:02:58.899019 [debug] [ThreadPool]: Using duckdb connection "warehouse.information_schema"
+[0m06:02:58.899019 [debug] [ThreadPool]: On warehouse.information_schema: /* {"app": "dbt", "dbt_version": "1.8.6", "profile_name": "meta_product_analytics", "target_name": "dev", "connection_name": "warehouse.information_schema"} */
+with relations AS (
+      select
+        t.table_name
+        , t.database_name
+        , t.schema_name
+        , 'BASE TABLE' as table_type
+        , t.comment as table_comment
+      from duckdb_tables() t
+      WHERE t.database_name = 'warehouse'
+      UNION ALL
+      SELECT v.view_name as table_name
+      , v.database_name
+      , v.schema_name
+      , 'VIEW' as table_type
+      , v.comment as table_comment
+      from duckdb_views() v
+      WHERE v.database_name = 'warehouse'
+    )
+    select
+        'warehouse' as table_database,
+        r.schema_name as table_schema,
+        r.table_name,
+        r.table_type,
+        r.table_comment,
+        c.column_name,
+        c.column_index as column_index,
+        c.data_type as column_type,
+        c.comment as column_comment,
+        '' as table_owner
+    FROM relations r JOIN duckdb_columns() c ON r.schema_name = c.schema_name AND r.table_name = c.table_name
+    WHERE (upper(r.schema_name) = upper('main'))
+    ORDER BY
+        r.schema_name,
+        r.table_name,
+        c.column_index
+[0m06:02:58.953545 [debug] [ThreadPool]: SQL status: OK in 0.054 seconds
+[0m06:02:58.981005 [debug] [ThreadPool]: On warehouse.information_schema: ROLLBACK
+[0m06:02:58.983016 [debug] [ThreadPool]: Failed to rollback 'warehouse.information_schema'
+[0m06:02:58.983016 [debug] [ThreadPool]: On warehouse.information_schema: Close
+[0m06:02:59.052208 [info ] [MainThread]: Catalog written to C:\Users\khema\Downloads\meta_product_analytics_de_project\meta_product_analytics_de_project\dbt_project\target\catalog.json
+[0m06:02:59.054606 [debug] [MainThread]: Command `dbt docs generate` succeeded at 06:02:59.054606 after 2.33 seconds
+[0m06:02:59.054606 [debug] [MainThread]: Connection 'generate_catalog' was properly closed.
+[0m06:02:59.054606 [debug] [MainThread]: Connection 'warehouse.information_schema' was properly closed.
+[0m06:02:59.054606 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'end', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x00000263BE295040>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x00000263C3F37AD0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x00000263C51F1400>]}
+[0m06:02:59.054606 [debug] [MainThread]: Flushing usage events
+[0m06:06:33.900789 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'start', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x00000154F44A90A0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x00000154F4C61490>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x00000154F3D6B200>]}
+
+
+============================== 06:06:33.911201 | 3d451d68-fde9-42c2-85a8-d6fdb3db4cfb ==============================
+[0m06:06:33.911201 [info ] [MainThread]: Running with dbt=1.8.6
+[0m06:06:33.911201 [debug] [MainThread]: running dbt with arguments {'printer_width': '80', 'indirect_selection': 'eager', 'write_json': 'True', 'log_cache_events': 'False', 'partial_parse': 'True', 'cache_selected_only': 'False', 'profiles_dir': 'C:\\Users\\khema\\Downloads\\meta_product_analytics_de_project\\meta_product_analytics_de_project\\dbt_project', 'fail_fast': 'False', 'warn_error': 'None', 'log_path': 'C:\\Users\\khema\\Downloads\\meta_product_analytics_de_project\\meta_product_analytics_de_project\\dbt_project\\logs', 'version_check': 'True', 'debug': 'False', 'use_colors': 'True', 'use_experimental_parser': 'False', 'no_print': 'None', 'quiet': 'False', 'empty': 'None', 'warn_error_options': 'WarnErrorOptions(include=[], exclude=[])', 'invocation_command': 'dbt docs generate', 'log_format': 'default', 'static_parser': 'True', 'target_path': 'None', 'introspect': 'True', 'send_anonymous_usage_stats': 'True'}
+[0m06:06:34.179295 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'project_id', 'label': '3d451d68-fde9-42c2-85a8-d6fdb3db4cfb', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x00000154F405B8C0>]}
+[0m06:06:34.234698 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'adapter_info', 'label': '3d451d68-fde9-42c2-85a8-d6fdb3db4cfb', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x00000154F3CCD4C0>]}
+[0m06:06:34.252760 [info ] [MainThread]: Registered adapter: duckdb=1.8.2
+[0m06:06:34.568590 [debug] [MainThread]: checksum: 2f2fb10c73cafe3e79aa104295a8244291492b32b5598ce46af770f7d0bd5194, vars: {}, profile: , target: , version: 1.8.6
+[0m06:06:34.733487 [debug] [MainThread]: Partial parsing enabled: 0 files deleted, 0 files added, 0 files changed.
+[0m06:06:34.733487 [debug] [MainThread]: Partial parsing enabled, no changes found, skipping parsing
+[0m06:06:34.784696 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'load_project', 'label': '3d451d68-fde9-42c2-85a8-d6fdb3db4cfb', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x00000154F6157DD0>]}
+[0m06:06:34.821907 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'resource_counts', 'label': '3d451d68-fde9-42c2-85a8-d6fdb3db4cfb', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x00000154F6560F50>]}
+[0m06:06:34.821907 [info ] [MainThread]: Found 7 models, 7 data tests, 421 macros
+[0m06:06:34.821907 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'runnable_timing', 'label': '3d451d68-fde9-42c2-85a8-d6fdb3db4cfb', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x00000154F61E89B0>]}
+[0m06:06:34.831660 [info ] [MainThread]: 
+[0m06:06:34.831660 [debug] [MainThread]: Acquiring new duckdb connection 'master'
+[0m06:06:34.841898 [debug] [ThreadPool]: Acquiring new duckdb connection 'list_warehouse_main'
+[0m06:06:34.933030 [debug] [ThreadPool]: Using duckdb connection "list_warehouse_main"
+[0m06:06:34.933030 [debug] [ThreadPool]: On list_warehouse_main: BEGIN
+[0m06:06:34.933030 [debug] [ThreadPool]: Opening a new connection, currently in state init
+[0m06:06:34.959297 [debug] [ThreadPool]: SQL status: OK in 0.013 seconds
+[0m06:06:34.959297 [debug] [ThreadPool]: Using duckdb connection "list_warehouse_main"
+[0m06:06:34.959297 [debug] [ThreadPool]: On list_warehouse_main: /* {"app": "dbt", "dbt_version": "1.8.6", "profile_name": "meta_product_analytics", "target_name": "dev", "connection_name": "list_warehouse_main"} */
+select
+      'warehouse' as database,
+      table_name as name,
+      table_schema as schema,
+      CASE table_type
+        WHEN 'BASE TABLE' THEN 'table'
+        WHEN 'VIEW' THEN 'view'
+        WHEN 'LOCAL TEMPORARY' THEN 'table'
+        END as type
+    from system.information_schema.tables
+    where table_schema = 'main'
+    and table_catalog = 'warehouse'
+  
+[0m06:06:34.996522 [debug] [ThreadPool]: SQL status: OK in 0.036 seconds
+[0m06:06:34.997186 [debug] [ThreadPool]: On list_warehouse_main: ROLLBACK
+[0m06:06:34.997186 [debug] [ThreadPool]: Failed to rollback 'list_warehouse_main'
+[0m06:06:34.997186 [debug] [ThreadPool]: On list_warehouse_main: Close
+[0m06:06:34.997186 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'runnable_timing', 'label': '3d451d68-fde9-42c2-85a8-d6fdb3db4cfb', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x00000154F6223080>]}
+[0m06:06:34.997186 [info ] [MainThread]: Concurrency: 4 threads (target='dev')
+[0m06:06:34.997186 [info ] [MainThread]: 
+[0m06:06:35.012587 [debug] [Thread-1 (]: Began running node model.meta_product_analytics.stg_content
+[0m06:06:35.012587 [debug] [Thread-2 (]: Began running node model.meta_product_analytics.stg_events
+[0m06:06:35.012587 [debug] [Thread-1 (]: Acquiring new duckdb connection 'model.meta_product_analytics.stg_content'
+[0m06:06:35.012587 [debug] [Thread-3 (]: Began running node model.meta_product_analytics.stg_users
+[0m06:06:35.012587 [debug] [Thread-2 (]: Acquiring new duckdb connection 'model.meta_product_analytics.stg_events'
+[0m06:06:35.012587 [debug] [Thread-1 (]: Began compiling node model.meta_product_analytics.stg_content
+[0m06:06:35.012587 [debug] [Thread-3 (]: Acquiring new duckdb connection 'model.meta_product_analytics.stg_users'
+[0m06:06:35.012587 [debug] [Thread-2 (]: Began compiling node model.meta_product_analytics.stg_events
+[0m06:06:35.023893 [debug] [Thread-1 (]: Writing injected SQL for node "model.meta_product_analytics.stg_content"
+[0m06:06:35.028610 [debug] [Thread-3 (]: Began compiling node model.meta_product_analytics.stg_users
+[0m06:06:35.030622 [debug] [Thread-2 (]: Writing injected SQL for node "model.meta_product_analytics.stg_events"
+[0m06:06:35.030622 [debug] [Thread-3 (]: Writing injected SQL for node "model.meta_product_analytics.stg_users"
+[0m06:06:35.034071 [debug] [Thread-1 (]: Began executing node model.meta_product_analytics.stg_content
+[0m06:06:35.034071 [debug] [Thread-1 (]: Finished running node model.meta_product_analytics.stg_content
+[0m06:06:35.036625 [debug] [Thread-2 (]: Began executing node model.meta_product_analytics.stg_events
+[0m06:06:35.037399 [debug] [Thread-3 (]: Began executing node model.meta_product_analytics.stg_users
+[0m06:06:35.039414 [debug] [Thread-4 (]: Began running node model.meta_product_analytics.dim_content
+[0m06:06:35.040465 [debug] [Thread-2 (]: Finished running node model.meta_product_analytics.stg_events
+[0m06:06:35.040465 [debug] [Thread-1 (]: Began running node test.meta_product_analytics.not_null_stg_content_content_id.8fd51f55b7
+[0m06:06:35.042480 [debug] [Thread-3 (]: Finished running node model.meta_product_analytics.stg_users
+[0m06:06:35.042480 [debug] [Thread-4 (]: Acquiring new duckdb connection 'model.meta_product_analytics.dim_content'
+[0m06:06:35.043511 [debug] [Thread-2 (]: Began running node test.meta_product_analytics.unique_stg_content_content_id.a034585f1a
+[0m06:06:35.045316 [debug] [Thread-1 (]: Re-using an available connection from the pool (formerly model.meta_product_analytics.stg_content, now test.meta_product_analytics.not_null_stg_content_content_id.8fd51f55b7)
+[0m06:06:35.045316 [debug] [Thread-3 (]: Began running node model.meta_product_analytics.fct_product_events
+[0m06:06:35.045316 [debug] [Thread-4 (]: Began compiling node model.meta_product_analytics.dim_content
+[0m06:06:35.045316 [debug] [Thread-2 (]: Re-using an available connection from the pool (formerly model.meta_product_analytics.stg_events, now test.meta_product_analytics.unique_stg_content_content_id.a034585f1a)
+[0m06:06:35.045316 [debug] [Thread-1 (]: Began compiling node test.meta_product_analytics.not_null_stg_content_content_id.8fd51f55b7
+[0m06:06:35.045316 [debug] [Thread-3 (]: Re-using an available connection from the pool (formerly model.meta_product_analytics.stg_users, now model.meta_product_analytics.fct_product_events)
+[0m06:06:35.045316 [debug] [Thread-4 (]: Writing injected SQL for node "model.meta_product_analytics.dim_content"
+[0m06:06:35.045316 [debug] [Thread-2 (]: Began compiling node test.meta_product_analytics.unique_stg_content_content_id.a034585f1a
+[0m06:06:35.060370 [debug] [Thread-1 (]: Writing injected SQL for node "test.meta_product_analytics.not_null_stg_content_content_id.8fd51f55b7"
+[0m06:06:35.060370 [debug] [Thread-3 (]: Began compiling node model.meta_product_analytics.fct_product_events
+[0m06:06:35.076880 [debug] [Thread-2 (]: Writing injected SQL for node "test.meta_product_analytics.unique_stg_content_content_id.a034585f1a"
+[0m06:06:35.076880 [debug] [Thread-3 (]: Writing injected SQL for node "model.meta_product_analytics.fct_product_events"
+[0m06:06:35.076880 [debug] [Thread-4 (]: Began executing node model.meta_product_analytics.dim_content
+[0m06:06:35.076880 [debug] [Thread-1 (]: Began executing node test.meta_product_analytics.not_null_stg_content_content_id.8fd51f55b7
+[0m06:06:35.083930 [debug] [Thread-4 (]: Finished running node model.meta_product_analytics.dim_content
+[0m06:06:35.083930 [debug] [Thread-1 (]: Finished running node test.meta_product_analytics.not_null_stg_content_content_id.8fd51f55b7
+[0m06:06:35.083930 [debug] [Thread-4 (]: Began running node test.meta_product_analytics.accepted_values_stg_events_event_type__view__like__impression__follow__session_start.16fff0a18c
+[0m06:06:35.083930 [debug] [Thread-3 (]: Began executing node model.meta_product_analytics.fct_product_events
+[0m06:06:35.083930 [debug] [Thread-1 (]: Began running node test.meta_product_analytics.not_null_stg_events_event_id.715b3f7012
+[0m06:06:35.083930 [debug] [Thread-2 (]: Began executing node test.meta_product_analytics.unique_stg_content_content_id.a034585f1a
+[0m06:06:35.083930 [debug] [Thread-4 (]: Re-using an available connection from the pool (formerly model.meta_product_analytics.dim_content, now test.meta_product_analytics.accepted_values_stg_events_event_type__view__like__impression__follow__session_start.16fff0a18c)
+[0m06:06:35.083930 [debug] [Thread-3 (]: Finished running node model.meta_product_analytics.fct_product_events
+[0m06:06:35.083930 [debug] [Thread-1 (]: Re-using an available connection from the pool (formerly test.meta_product_analytics.not_null_stg_content_content_id.8fd51f55b7, now test.meta_product_analytics.not_null_stg_events_event_id.715b3f7012)
+[0m06:06:35.083930 [debug] [Thread-2 (]: Finished running node test.meta_product_analytics.unique_stg_content_content_id.a034585f1a
+[0m06:06:35.083930 [debug] [Thread-4 (]: Began compiling node test.meta_product_analytics.accepted_values_stg_events_event_type__view__like__impression__follow__session_start.16fff0a18c
+[0m06:06:35.091810 [debug] [Thread-3 (]: Began running node test.meta_product_analytics.unique_stg_events_event_id.66ebb17438
+[0m06:06:35.091810 [debug] [Thread-1 (]: Began compiling node test.meta_product_analytics.not_null_stg_events_event_id.715b3f7012
+[0m06:06:35.091810 [debug] [Thread-2 (]: Began running node model.meta_product_analytics.dim_users
+[0m06:06:35.091810 [debug] [Thread-4 (]: Writing injected SQL for node "test.meta_product_analytics.accepted_values_stg_events_event_type__view__like__impression__follow__session_start.16fff0a18c"
+[0m06:06:35.091810 [debug] [Thread-3 (]: Re-using an available connection from the pool (formerly model.meta_product_analytics.fct_product_events, now test.meta_product_analytics.unique_stg_events_event_id.66ebb17438)
+[0m06:06:35.109826 [debug] [Thread-1 (]: Writing injected SQL for node "test.meta_product_analytics.not_null_stg_events_event_id.715b3f7012"
+[0m06:06:35.111839 [debug] [Thread-2 (]: Re-using an available connection from the pool (formerly test.meta_product_analytics.unique_stg_content_content_id.a034585f1a, now model.meta_product_analytics.dim_users)
+[0m06:06:35.111839 [debug] [Thread-3 (]: Began compiling node test.meta_product_analytics.unique_stg_events_event_id.66ebb17438
+[0m06:06:35.111839 [debug] [Thread-2 (]: Began compiling node model.meta_product_analytics.dim_users
+[0m06:06:35.115443 [debug] [Thread-3 (]: Writing injected SQL for node "test.meta_product_analytics.unique_stg_events_event_id.66ebb17438"
+[0m06:06:35.115443 [debug] [Thread-4 (]: Began executing node test.meta_product_analytics.accepted_values_stg_events_event_type__view__like__impression__follow__session_start.16fff0a18c
+[0m06:06:35.122997 [debug] [Thread-1 (]: Began executing node test.meta_product_analytics.not_null_stg_events_event_id.715b3f7012
+[0m06:06:35.124070 [debug] [Thread-2 (]: Writing injected SQL for node "model.meta_product_analytics.dim_users"
+[0m06:06:35.124070 [debug] [Thread-4 (]: Finished running node test.meta_product_analytics.accepted_values_stg_events_event_type__view__like__impression__follow__session_start.16fff0a18c
+[0m06:06:35.126084 [debug] [Thread-1 (]: Finished running node test.meta_product_analytics.not_null_stg_events_event_id.715b3f7012
+[0m06:06:35.126084 [debug] [Thread-3 (]: Began executing node test.meta_product_analytics.unique_stg_events_event_id.66ebb17438
+[0m06:06:35.126084 [debug] [Thread-4 (]: Began running node test.meta_product_analytics.not_null_stg_users_user_id.980dfc1b77
+[0m06:06:35.126084 [debug] [Thread-1 (]: Began running node test.meta_product_analytics.unique_stg_users_user_id.c2ff477e6b
+[0m06:06:35.126084 [debug] [Thread-3 (]: Finished running node test.meta_product_analytics.unique_stg_events_event_id.66ebb17438
+[0m06:06:35.126084 [debug] [Thread-4 (]: Re-using an available connection from the pool (formerly test.meta_product_analytics.accepted_values_stg_events_event_type__view__like__impression__follow__session_start.16fff0a18c, now test.meta_product_analytics.not_null_stg_users_user_id.980dfc1b77)
+[0m06:06:35.126084 [debug] [Thread-2 (]: Began executing node model.meta_product_analytics.dim_users
+[0m06:06:35.126084 [debug] [Thread-1 (]: Re-using an available connection from the pool (formerly test.meta_product_analytics.not_null_stg_events_event_id.715b3f7012, now test.meta_product_analytics.unique_stg_users_user_id.c2ff477e6b)
+[0m06:06:35.126084 [debug] [Thread-4 (]: Began compiling node test.meta_product_analytics.not_null_stg_users_user_id.980dfc1b77
+[0m06:06:35.126084 [debug] [Thread-2 (]: Finished running node model.meta_product_analytics.dim_users
+[0m06:06:35.126084 [debug] [Thread-1 (]: Began compiling node test.meta_product_analytics.unique_stg_users_user_id.c2ff477e6b
+[0m06:06:35.126084 [debug] [Thread-4 (]: Writing injected SQL for node "test.meta_product_analytics.not_null_stg_users_user_id.980dfc1b77"
+[0m06:06:35.138990 [debug] [Thread-1 (]: Writing injected SQL for node "test.meta_product_analytics.unique_stg_users_user_id.c2ff477e6b"
+[0m06:06:35.138990 [debug] [Thread-3 (]: Began running node model.meta_product_analytics.agg_product_kpis
+[0m06:06:35.138990 [debug] [Thread-3 (]: Re-using an available connection from the pool (formerly test.meta_product_analytics.unique_stg_events_event_id.66ebb17438, now model.meta_product_analytics.agg_product_kpis)
+[0m06:06:35.138990 [debug] [Thread-3 (]: Began compiling node model.meta_product_analytics.agg_product_kpis
+[0m06:06:35.148077 [debug] [Thread-3 (]: Writing injected SQL for node "model.meta_product_analytics.agg_product_kpis"
+[0m06:06:35.148077 [debug] [Thread-1 (]: Began executing node test.meta_product_analytics.unique_stg_users_user_id.c2ff477e6b
+[0m06:06:35.150097 [debug] [Thread-1 (]: Finished running node test.meta_product_analytics.unique_stg_users_user_id.c2ff477e6b
+[0m06:06:35.150609 [debug] [Thread-4 (]: Began executing node test.meta_product_analytics.not_null_stg_users_user_id.980dfc1b77
+[0m06:06:35.151756 [debug] [Thread-4 (]: Finished running node test.meta_product_analytics.not_null_stg_users_user_id.980dfc1b77
+[0m06:06:35.151756 [debug] [Thread-3 (]: Began executing node model.meta_product_analytics.agg_product_kpis
+[0m06:06:35.151756 [debug] [Thread-3 (]: Finished running node model.meta_product_analytics.agg_product_kpis
+[0m06:06:35.154811 [debug] [MainThread]: Connection 'master' was properly closed.
+[0m06:06:35.154811 [debug] [MainThread]: Connection 'list_warehouse_main' was properly closed.
+[0m06:06:35.154811 [debug] [MainThread]: Connection 'test.meta_product_analytics.unique_stg_users_user_id.c2ff477e6b' was properly closed.
+[0m06:06:35.154811 [debug] [MainThread]: Connection 'model.meta_product_analytics.dim_users' was properly closed.
+[0m06:06:35.154811 [debug] [MainThread]: Connection 'model.meta_product_analytics.agg_product_kpis' was properly closed.
+[0m06:06:35.154811 [debug] [MainThread]: Connection 'test.meta_product_analytics.not_null_stg_users_user_id.980dfc1b77' was properly closed.
+[0m06:06:35.158840 [debug] [MainThread]: Command end result
+[0m06:06:35.250309 [debug] [MainThread]: Acquiring new duckdb connection 'generate_catalog'
+[0m06:06:35.257678 [info ] [MainThread]: Building catalog
+[0m06:06:35.269753 [debug] [ThreadPool]: Acquiring new duckdb connection 'warehouse.information_schema'
+[0m06:06:35.281285 [debug] [ThreadPool]: Using duckdb connection "warehouse.information_schema"
+[0m06:06:35.281285 [debug] [ThreadPool]: On warehouse.information_schema: BEGIN
+[0m06:06:35.281285 [debug] [ThreadPool]: Opening a new connection, currently in state init
+[0m06:06:35.289953 [debug] [ThreadPool]: SQL status: OK in 0.011 seconds
+[0m06:06:35.289953 [debug] [ThreadPool]: Using duckdb connection "warehouse.information_schema"
+[0m06:06:35.295115 [debug] [ThreadPool]: On warehouse.information_schema: /* {"app": "dbt", "dbt_version": "1.8.6", "profile_name": "meta_product_analytics", "target_name": "dev", "connection_name": "warehouse.information_schema"} */
+with relations AS (
+      select
+        t.table_name
+        , t.database_name
+        , t.schema_name
+        , 'BASE TABLE' as table_type
+        , t.comment as table_comment
+      from duckdb_tables() t
+      WHERE t.database_name = 'warehouse'
+      UNION ALL
+      SELECT v.view_name as table_name
+      , v.database_name
+      , v.schema_name
+      , 'VIEW' as table_type
+      , v.comment as table_comment
+      from duckdb_views() v
+      WHERE v.database_name = 'warehouse'
+    )
+    select
+        'warehouse' as table_database,
+        r.schema_name as table_schema,
+        r.table_name,
+        r.table_type,
+        r.table_comment,
+        c.column_name,
+        c.column_index as column_index,
+        c.data_type as column_type,
+        c.comment as column_comment,
+        '' as table_owner
+    FROM relations r JOIN duckdb_columns() c ON r.schema_name = c.schema_name AND r.table_name = c.table_name
+    WHERE (upper(r.schema_name) = upper('main'))
+    ORDER BY
+        r.schema_name,
+        r.table_name,
+        c.column_index
+[0m06:06:35.350885 [debug] [ThreadPool]: SQL status: OK in 0.055 seconds
+[0m06:06:35.360539 [debug] [ThreadPool]: On warehouse.information_schema: ROLLBACK
+[0m06:06:35.360539 [debug] [ThreadPool]: Failed to rollback 'warehouse.information_schema'
+[0m06:06:35.360539 [debug] [ThreadPool]: On warehouse.information_schema: Close
+[0m06:06:35.425123 [info ] [MainThread]: Catalog written to C:\Users\khema\Downloads\meta_product_analytics_de_project\meta_product_analytics_de_project\dbt_project\target\catalog.json
+[0m06:06:35.429450 [debug] [MainThread]: Command `dbt docs generate` succeeded at 06:06:35.429450 after 1.74 seconds
+[0m06:06:35.429450 [debug] [MainThread]: Connection 'generate_catalog' was properly closed.
+[0m06:06:35.429450 [debug] [MainThread]: Connection 'warehouse.information_schema' was properly closed.
+[0m06:06:35.429450 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'end', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x00000154F4B0C290>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x00000154F4B0DD00>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x00000154F4A30D70>]}
+[0m06:06:35.429450 [debug] [MainThread]: Flushing usage events
