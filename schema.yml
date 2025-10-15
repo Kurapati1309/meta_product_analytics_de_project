@@ -1,0 +1,50 @@
+version: 2
+
+models:
+  - name: stg_users
+    description: "Staging model for user profiles data, loaded from users.csv"
+    columns:
+      - name: user_id
+        description: "Unique identifier for each registered user"
+        tests:
+          - not_null
+          - unique
+      - name: signup_date
+        description: "Date when the user signed up"
+      - name: country
+        description: "Country from which the user registered"
+
+  - name: stg_content
+    description: "Staging model for content metadata, loaded from content.csv"
+    columns:
+      - name: content_id
+        description: "Unique identifier for each piece of content"
+        tests:
+          - not_null
+          - unique
+      - name: creator_user_id
+        description: "ID of the user who created the content"
+      - name: category
+        description: "Type of content (e.g., news, sports, etc.)"
+      - name: created_at
+        description: "Timestamp when content was published"
+
+  - name: stg_events
+    description: "Staging model for user interaction events, loaded from events_app.csv"
+    columns:
+      - name: event_id
+        description: "Unique event identifier"
+        tests:
+          - not_null
+          - unique
+      - name: user_id
+        description: "User who performed the event"
+      - name: content_id
+        description: "Associated content involved in the event"
+      - name: event_type
+        description: "Event category (view, like, follow, impression, etc.)"
+        tests:
+          - accepted_values:
+              values: ['view', 'like', 'follow', 'impression', 'session_start']
+      - name: event_ts
+        description: "Timestamp when the event occurred"

@@ -1,0 +1,11 @@
+name: 'meta_product_analytics'
+version: '1.0.0'
+profile: 'meta_product_analytics'
+model-paths: ['models']
+models:
+  meta_product_analytics:
+    +materialized: table
+    staging:
+      +materialized: view
+    marts:
+      +materialized: table

@@ -1,0 +1,24 @@
+version: 2
+
+models:
+  - name: stg_users
+    description: "Users data model"
+    columns:
+      - name: user_id
+        tests: [not_null, unique]
+
+  - name: stg_content
+    description: "Content data model"
+    columns:
+      - name: content_id
+        tests: [not_null, unique]
+
+  - name: stg_events
+    description: "Events data model"
+    columns:
+      - name: event_id
+        tests: [not_null, unique]
+      - name: event_type
+        tests:
+          - accepted_values:
+              values: ['view', 'like', 'impression', 'follow', 'session_start']

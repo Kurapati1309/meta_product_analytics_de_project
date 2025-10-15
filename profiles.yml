@@ -1,0 +1,8 @@
+meta_product_analytics:
+  outputs:
+    dev:
+      type: duckdb
+      path: C:/Users/khema/Downloads/meta_product_analytics_de_project/meta_product_analytics_de_project/dbt_project/infra/warehouse.duckdb
+      threads: 4
+      schema: main
+  target: dev
