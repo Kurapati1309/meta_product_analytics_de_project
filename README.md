@@ -197,10 +197,64 @@ duckdb ../lake/commerce.duckdb -c "SELECT * FROM analytics.fct_commerce_summary 
 
 ---
 
+---
+
+## 🧠 Moonlight Aura Data Warehouse — Lineage & Analytics Overview
+
+The **Moonlight Aura Data Warehouse** is a secure, modular analytics platform designed to transform raw client data into real-time, business-ready insights.
+
+This dbt-powered architecture automates the flow of data from ingestion to analytics using **DuckDB**, **dbt**, and **Python** — making it ideal for:
+- E-commerce platforms (orders, marketing, and return analytics)
+- Hotel/Motel systems (occupancy, housekeeping, and revenue metrics)
+- Restaurants & delivery apps (menu performance and order trends)
+- Marketing agencies (ad spend ROI and engagement insights)
+
+---
+
+### ⚙️ Architecture Flow
+| Layer | Description | Example Models |
+|:------|:-------------|:---------------|
+| **Raw (Bronze)** | Ingests unprocessed client data (CSV, API, event logs). | `raw.orders_raw`, `raw.ad_spend_raw`, `raw.events_stream` |
+| **Staging (Silver)** | Cleans and standardizes fields for analytics. | `stg_orders`, `stg_products`, `stg_inventory` |
+| **Analytics (Gold)** | Business-ready facts & KPIs used by dashboards. | `fct_commerce_summary`, `fct_returns_summary`, `marketing_roas` |
+
+---
+
+### 🧩 dbt Lineage Graph
+Below is a visual representation of all transformations within the warehouse — from raw ingestion to analytics marts.
+
+![dbt Lineage Graph](./images/dbt_lineage.png)
+
+Each node represents a dbt model; arrows show dependencies and transformation flow.
+This makes it simple to audit, scale, and onboard client datasets securely.
+
+---
+
+### 📘 Example Model — `fct_returns_summary`
+
+| Column | Type | Description |
+|:--------|:------|:-------------|
+| `date` | DATE | Calendar date of aggregation |
+| `orders` | BIGINT | Number of total orders |
+| `returned_units` | BIGINT | Total returned items |
+| `returned_value` | DOUBLE | Dollar value of returned items |
+| `return_rate` | DOUBLE | Return ratio (%) |
+
+This fact table summarizes e-commerce returns for performance tracking and ROAS optimization.
+
+---
+
+### 🚀 Vision
+> “🧠 Powered by Moonlight Aura — Secure Data Engineering for Modern Businesses.”
+
+Designed for clients who want to transform their **raw data into reliable analytics tables + KPIs** — fast, scalable, and cloud-ready.
+
+--
+
 ## 👨‍💻 Author & Credits
 
 **Hemanth Kumar Kurapati**
-Founder — Moonlight Aura Studios
+Founder — Moonlight Aura Data Warehouse
 📍 Houston, TX
 ✉️ [hk485@nau.edu](mailto:hk485@nau.edu)
 🔗 [LinkedIn](https://www.linkedin.com/in/hemanth-kurapati1021)
